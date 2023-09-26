@@ -1,2 +1,2 @@
 # Paystation
-payroll management system
+PAYROLL MANAGEMENT SYSTEM
