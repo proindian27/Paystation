@@ -1,0 +1,100 @@
+<!-- <?php -->
+<!-- // Include your database connection code here
+// Example: include('db_connection.php');
+
+// Sample employee data (you should retrieve this from your database)
+$employees = [
+    ['id' => 1, 'name' => 'John Doe', 'position' => 'Manager', 'salary' => 50000],
+    ['id' => 2, 'name' => 'Jane Smith', 'position' => 'Developer', 'salary' => 60000],
+    // Add more employee records as needed
+];
+
+// Check for form submissions (adding or editing employees)
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    if (isset($_POST['add_employee'])) {
+        // Handle adding a new employee (insert into the database)
+        $newEmployee = [
+            'id' => count($employees) + 1,
+            'name' => $_POST['employee_name'],
+            'position' => $_POST['employee_position'],
+            'salary' => $_POST['employee_salary']
+        ];
+        array_push($employees, $newEmployee);
+        // Insert the new employee into the database here (not implemented in this example)
+    } elseif (isset($_POST['edit_employee'])) {
+        // Handle editing an existing employee (update the database)
+        $employeeId = $_POST['employee_id'];
+        $editedEmployee = [
+            'id' => $employeeId,
+            'name' => $_POST['employee_name'],
+            'position' => $_POST['employee_position'],
+            'salary' => $_POST['employee_salary']
+        ];
+        // Update the employee record in the database here (not implemented in this example)
+        foreach ($employees as &$employee) {
+            if ($employee['id'] == $employeeId) {
+                $employee = $editedEmployee;
+                break;
+            }
+        }
+    }
+} -->
+
+<!-- ?> --> 
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Employees - Payroll Management System</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Manage Employees</h1>
+    </header>
+    
+<main>
+    <div class="manemp">
+        <h2 id="add"><center>Edit Employee Details</center></h2>
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Position</th>
+                <th>Salary</th>
+                
+            </tr>
+            <?php foreach ($employees as $employee) : ?>
+                <tr>
+                    <td>
+                        <input type="text" name="employee_id" size="2"><br></td>
+                    <td><?= $employee['name'] ?> <input type="text" name="employee_id" size="8"><br></td></td>
+                    <td><?= $employee['position'] ?><input type="text" name="employee_id" size="7"><br></td></td>
+                    <td><?= $employee['salary'] ?><input type="text" name="employee_id" size="3"><br></td></td>
+                    <td><a href="edit_employee.php?id=<?= $employee['id'] ?>">Edit</a></td>
+                </tr>
+            <?php endforeach; ?>
+        </table>
+        </div>
+    <div class="manemp">
+        <h2 id="add"><center>Add Employee</center></h2>
+        <form method="post">
+            <label for="employee_name">Name:</label>
+            <input type="text" name="employee_name" required size="20"><br><br>
+            <label for="employee_position">Position:</label>
+            <input type="text" name="employee_position" required><br><br>
+            <label for="employee_salary">Salary:</label>
+            <input type="number" name="employee_salary" required><br><br><br>
+           <input type="submit" name="add_employee" value="Add Employee"id="ad">
+        </form>
+    </div>
+    <p><a href="admin.html">Back to Dashboard</a></p>
+    </main>
+
+    <footer class="foot">
+        <p>&copy; 2023 Payroll Management System</p>
+    </footer>
+</body>
+</html>

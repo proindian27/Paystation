@@ -6,7 +6,7 @@
 </head>
 <body>
     <div class="container">
-        <h1>Mark Your Attendance</h1>
+        <h1 id="add">Mark Your Attendance</h1>
         <!-- <?php
         // Include database connection code (db.php)
         include('../includes/db.php');
@@ -30,6 +30,8 @@
             $stmt->close();
         }
         ?> -->
+
+        <div class="manemp">
         <form method="POST" action="">
             <label for="attendance_status">Attendance Status:</label>
             <select id="form" name="attendance_status" required>
@@ -37,8 +39,9 @@
                 <option value="absent">Absent</option>
                 <option value="late">Late</option>
             </select>
-            <input type="submit" value="Mark Attendance">
+            <input type="submit" value="Mark Attendance" id="ad">
         </form>
+    </div>
         <p><a href="index.html">Back to Dashboard</a></p>
     </div>
 </body>

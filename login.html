@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="login-container">
+        <h2>Login</h2>
+        <form id="login-form">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required><br>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required><br>
+            <label for="usertype">Select User Type:</label>
+            <select id="usertype" name="usertype" required>
+                <option value="admin">Admin</option>
+                <option value="employee">Employee</option>
+            </select><br>
+            <input type="submit" value="Login">
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('login-form').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            // Get user type (admin or employee)
+            var userType = document.getElementById('usertype').value;
+
+            // Check user type and redirect accordingly
+            if (userType === 'admin') {
+                window.location.href = 'admin.html'; // Replace with the actual admin dashboard URL
+            } else if (userType === 'employee') {
+                window.location.href = 'index.html'; // Replace with the actual employee dashboard URL
+            }
+        });
+    </script>
+</body>
+</html>
+

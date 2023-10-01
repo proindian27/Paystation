@@ -6,7 +6,7 @@
 </head>
 <body>
     <div class="container">
-        <h1>Salary Management</h1>
+        <h1 id="add">Salary Management</h1>
         <!-- <?php
         // Include database connection code (db.php)
         include('../includes/db.php');
@@ -41,6 +41,7 @@
             $stmt->close();
         }
         ?> -->
+        <div class="manemp">
         <form method="POST" action="">
             <label for="month_year">Month and Year:</label>
             <input type="text" name="month_year" placeholder="e.g., September 2023" required><br>
@@ -49,9 +50,10 @@
             <label for="allowances">Allowances:</label>
             <input type="number" step="0.01" name="allowances" required><br>
             <label for="deductions">Deductions:</label>
-            <input type="number" step="0.01" name="deductions" required><br>
-            <input type="submit" value="Update Salary">
+            <input type="number" step="0.01" name="deductions" required><br><br>
+           <center><input type="submit" value="Update Salary"id="ad"></center> s
         </form>
+    </div>
         <p><a href="index.html">Back to Dashboard</a></p>
     </div>
 </body>

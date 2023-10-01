@@ -1,0 +1,87 @@
+<!-- <?php
+// Include your database connection code here
+// Example: include('db_connection.php');
+
+// Sample attendance data (you should retrieve this from your database)
+$attendanceRecords = [
+    ['employee_id' => 1, 'employee_name' => 'John Doe', 'date' => '2023-10-01', 'status' => 'Present'],
+    ['employee_id' => 2, 'employee_name' => 'Jane Smith', 'date' => '2023-10-01', 'status' => 'Absent'],
+    // Add more attendance records as needed
+];
+
+// Function to get unique employee names from attendance records
+function getUniqueEmployeeNames($attendanceRecords) {
+    $employeeNames = array_column($attendanceRecords, 'employee_name');
+    return array_unique($employeeNames);
+}
+
+?> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Attendance - Payroll Management System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Employee Attendance</h1>
+    </header>
+    
+    
+
+    <main>
+        <div class="manemp">
+        <h2 id="add">Attendance Records</h2>
+        <form method="post">
+            <label for="employee_name">Select Employee:</label>
+            <select name="employee_name" required>
+                <option value="">Select an employee</option>
+                <!-- <?php foreach (getUniqueEmployeeNames($attendanceRecords) as $employeeName) : ?>
+                    <option value="<?= $employeeName ?>"><?= $employeeName ?></option>
+                <?php endforeach; ?> -->
+            </select>
+            <input type="submit" name="view_attendance" value="View Attendance"id="ad">
+        </form>
+    </div>
+        <!-- <?php
+        if (isset($_POST['view_attendance'])) {
+            $selectedEmployee = $_POST['employee_name'];
+            echo "<h3>Attendance for $selectedEmployee</h3>";
+            echo "<table>";
+            echo "<tr><th>Date</th><th>Status</th></tr>";
+            
+            foreach ($attendanceRecords as $record) {
+                if ($record['employee_name'] === $selectedEmployee) {
+                    echo "<tr><td>{$record['date']}</td><td>{$record['status']}</td></tr>";
+                }
+            }
+            echo "</table>";
+        }
+        ?>
+         -->
+         <div class="manemp">
+        <h2 id="add">Mark Attendance</h2>
+        <form method="post" >
+            <label for="employee_name">Employee Name:</label>
+            <input type="text" name="employee_name" required><br><br>
+            <label for="attendance_date">Date:</label>
+            <input type="date" name="attendance_date" required><br><br>
+            <label for="attendance_status">Status:</label>
+            <select name="attendance_status" required>
+                <option value="Present">Present</option>
+                <option value="Absent">Absent</option>
+            </select><br><br>
+           <input type="submit" name="mark_attendance" value="Mark Attendance" id="ad"><br><br> 
+        </form>
+    </div>
+        <p><a href="admin.html">Back to Dashboard</a></p>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Payroll Management System</p>
+    </footer>
+</body>
+</html>
