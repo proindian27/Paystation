@@ -23,4 +23,4 @@ Username: WY05
 Password: password
 
 
-URL “http://localhost/paystation/login.php“
+URL “http://localhost/Paystation/login.php“
