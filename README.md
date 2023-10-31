@@ -1,2 +1,0 @@
-# Paystation
-PAYROLL MANAGEMENT SYSTEM
