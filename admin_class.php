@@ -132,7 +132,7 @@ Class Action {
 	function save_employee(){
 		extract($_POST);
 		$data =" firstname='$firstname' ";
-		$data .=", middlename='$middlename' ";
+		//$data .=", middlename='$middlename' ";
 		$data .=", lastname='$lastname' ";
 		$data .=", position_id='$position_id' ";
 		$data .=", department_id='$department_id' ";

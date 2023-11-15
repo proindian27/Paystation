@@ -130,8 +130,8 @@ CREATE TABLE `employee` (
 -- Dumping data for table `employee`
 --
 
-INSERT INTO `employee` (`id`, `employee_no`, `firstname`, `middlename`, `lastname`, `department_id`, `position_id`, `salary`) VALUES
-(9, '2020-9838', 'Angel Jude', 'Reyes', 'Suarez', 1, 1, 30000);
+INSERT INTO `employee` (`id`, `employee_no`, `firstname`, `lastname`, `department_id`, `position_id`, `salary`) VALUES
+(9, '2020-9838', 'Angel Jude',  'Suarez', 1, 1, 30000);
 
 -- --------------------------------------------------------
 

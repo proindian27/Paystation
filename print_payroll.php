@@ -38,7 +38,7 @@ tr,td,th{
     <tbody>
     <?php
 									
-        $payroll=$conn->query("SELECT p.*,concat(e.lastname,', ',e.firstname,' ',e.middlename) as ename,e.employee_no,e.salary FROM payroll_items p inner join employee e on e.id = p.employee_id ") or die(mysqli_error());
+        $payroll=$conn->query("SELECT p.*,concat(e.lastname,', ',e.firstname) as ename,e.employee_no,e.salary FROM payroll_items p inner join employee e on e.id = p.employee_id ") or die(mysqli_error());
         while($row=$payroll->fetch_array()){
     ?>
     <tr>

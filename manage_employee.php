@@ -15,10 +15,10 @@ if(isset($_GET['id'])){
 			<input type="hidden" name="id" value="<?php echo isset($id) ? $id : "" ?>" />
 			<input type="text" name="firstname" required="required" class="form-control" value="<?php echo isset($firstname) ? $firstname : "" ?>" />
 		</div>
-		<div class="form-group">
+		<!-- <div class="form-group">
 			<label>Middlename</label>
-			<input type="text" name ="middlename" placeholder="(optional)" class="form-control" value="<?php echo isset($middlename) ? $middlename : "" ?>" />
-		</div>
+			<input type="text" name ="middlename" placeholder="(optional)" class="form-control" value="<?php// echo isset($middlename) ? $middlename : "" ?>" />
+		</div> -->
 		<div class="form-group">
 			<label>Lastname:</label>
 			<input type="text" name="lastname" required="required" class="form-control" value="<?php echo isset($lastname) ? $lastname : "" ?>" />
