@@ -20,6 +20,10 @@
 <style>
 	body{
         background: #80808045;
+        background:url("assets/img/admin.jpg");
+        background-repeat:no-repeat;
+        background-size:1500px;
+       
   }
   .modal-dialog.large {
     width: 80% !important;
