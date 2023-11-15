@@ -10,7 +10,7 @@ $emp = $conn->query("SELECT e.*,d.name as dname,p.name as pname FROM employee e 
 <div class="contriner-fluid">
 	<div class="col-md-12">
 		<h5><b><small>Employee ID :</small><?php echo $employee_no ?></b></h5>
-		<h4><b><small>Name: </small><?php echo ucwords($lastname.", ".$firstname." ",$middlename) ?></b></h4>
+		<h4><b><small>Name: </small><?php echo ucwords($lastname.", ".$firstname) ?></b></h4>
 		<p><b>Department : <?php echo ucwords($dname) ?></b></p>
 		<p><b>Position : <?php echo ucwords($pname) ?></b></p>
 		<hr class="divider">
@@ -25,7 +25,7 @@ $emp = $conn->query("SELECT e.*,d.name as dname,p.name as pname FROM employee e 
 						<ul class="list-group">
 							<?php
 							$allowances = $conn->query("SELECT ea.*,a.allowance as aname FROM employee_allowances ea inner join allowances a on a.id = ea.allowance_id where ea.employee_id=".$_GET['id']." order by ea.type asc,date(ea.effective_date) asc, a.allowance asc ");
-							$t_arr = array(1=>"Monthly",2=>"Semi-Monthly",3=>"Once");
+							$t_arr = array(1=>"Monthly");
 							while($row=$allowances->fetch_assoc()):
 							?>
 						  <li class="list-group-item d-flex justify-content-between align-items-center alist" data-id="<?php echo $row['id'] ?>">
@@ -53,7 +53,7 @@ $emp = $conn->query("SELECT e.*,d.name as dname,p.name as pname FROM employee e 
 						<ul class="list-group">
 							<?php
 							$deductions = $conn->query("SELECT ea.*,d.deduction as dname FROM employee_deductions ea inner join deductions d on d.id = ea.deduction_id where ea.employee_id=".$_GET['id']." order by ea.type asc,date(ea.effective_date) asc, d.deduction asc ");
-							$t_arr = array(1=>"Monthly",2=>"Semi-Monthly",3=>"Once");
+							$t_arr = array(1=>"Monthly");
 							while($row=$deductions->fetch_assoc()):
 							?>
 						  <li class="list-group-item d-flex justify-content-between align-items-center dlist" data-id="<?php echo $row['id'] ?>">
@@ -87,10 +87,10 @@ $emp = $conn->query("SELECT e.*,d.name as dname,p.name as pname FROM employee e 
 </style>
 <script>
 	$('#new_allowance').click(function(){
-		uni_modal("New Allowace for <?php echo $employee_no.' - '.ucwords($lastname.", ".$firstname." ",$middlename) ?>",'manage_employee_allowances.php?id=<?php echo $_GET['id'] ?>','mid-large')
+		uni_modal("New Allowace for <?php echo $employee_no.' - '.ucwords($lastname.", ".$firstname) ?>",'manage_employee_allowances.php?id=<?php echo $_GET['id'] ?>','mid-large')
 	})
 	$('#new_deduction').click(function(){
-		uni_modal("New Deduction for <?php echo $employee_no.' - '.ucwords($lastname.", ".$firstname." ",$middlename) ?>",'manage_employee_deductions.php?id=<?php echo $_GET['id'] ?>','mid-large')
+		uni_modal("New Deduction for <?php echo $employee_no.' - '.ucwords($lastname.", ".$firstname) ?>",'manage_employee_deductions.php?id=<?php echo $_GET['id'] ?>','mid-large')
 	})
 	$('.remove_allowance').click(function(){
 				_conf("Are you sure to delete this allowance?","remove_allowance",[$(this).attr('data-id')])

@@ -1,7 +1,7 @@
 <?php include 'db_connect.php' ?>
 
 <?php
-	$payroll=$conn->query("SELECT p.*,concat(e.lastname,', ',e.firstname,' ',e.middlename) as ename,e.employee_no FROM payroll_items p inner join employee e on e.id = p.employee_id  where p.id=".$_GET['id']);
+	$payroll=$conn->query("SELECT p.*,concat(e.lastname,', ',e.firstname) as ename,e.employee_no FROM payroll_items p inner join employee e on e.id = p.employee_id  where p.id=".$_GET['id']);
 	foreach ($payroll->fetch_array() as $key => $value) {
 		$$key = $value;
 	}
@@ -42,7 +42,7 @@
 						<ul class="list-group">
 							<?php
 							$all_qry = $conn->query("SELECT * from allowances ");
-							$t_arr = array(1=>"Monthly",2=>"Semi-Monthly",3=>"Once");
+							$t_arr = array(1=>"Monthly");
 							while($row=$all_qry->fetch_assoc()):
 								$all_arr[$row['id']] = $row['allowance'];
 						 	endwhile; 

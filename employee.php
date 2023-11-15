@@ -15,7 +15,7 @@
 								<tr>
 									<th>Employee No</th>
 									<th>Firstname</th>
-									<th>Middlename</th>
+									<!-- <th>Middlename</th> -->
 									<th>Lastname</th>
 									<th>Department</th>
 									<th>Position</th>
@@ -40,7 +40,7 @@
 								<tr>
 									<td><?php echo $row['employee_no']?></td>
 									<td><?php echo $row['firstname']?></td>
-									<td><?php echo $row['middlename']?></td>
+									<!-- <td><?php //echo $row['middlename']?></td> -->
 									<td><?php echo $row['lastname']?></td>
 									<td><?php echo $d_arr[$row['department_id']]?></td>
 									<td><?php echo $p_arr[$row['position_id']]?></td>

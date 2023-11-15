@@ -22,8 +22,8 @@
 				<label for="" class="control-label">Type</label>
 				<select id="type" class="borwser-default custom-select">
 					<option value="1">Monthly</option>
-					<option value="2">Semi-Monthly</option>
-					<option value="3">Once</option>
+					<!-- <option value="2">Semi-Monthly</option> -->
+					<!-- <option value="3">Once</option> -->
 				</select>
 			</div>
 			<div class="col-md-3" style="display: none" id="dfield">
