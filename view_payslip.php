@@ -42,7 +42,7 @@
 						<ul class="list-group">
 							<?php
 							$all_qry = $conn->query("SELECT * from allowances ");
-							$t_arr = array(1=>"Monthly",2=>"Semi-Monthly",3=>"Once");
+							$t_arr = array(1=>"Monthly");
 							while($row=$all_qry->fetch_assoc()):
 								$all_arr[$row['id']] = $row['allowance'];
 						 	endwhile; 
