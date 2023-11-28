@@ -1,7 +1,8 @@
 <?php include('db_connect.php') ?>
+
 <?php
 		$pay = $conn->query("SELECT * FROM payroll where id = ".$_GET['id'])->fetch_array();
-		$pt = array(1=>"Monhtly",2=>"Semi-Monthly");
+		$pt = array(1=>"Monthly");
 ?>
 		<div class="container-fluid " >
 			<div class="col-lg-12">
@@ -10,15 +11,15 @@
 				<br />
 				<div class="card">
 					<div class="card-header">
-						<span><b>Payroll : <?php echo $pay['ref_no'] ?></b></span>
-						
-						<button class="btn btn-primary btn-sm btn-block col-md-2 float-right" type="button" id="new_payroll_btn"><span class="fa fa-plus"></span> Re-Caclulate Payroll</button>
+						<span><b>Payroll : <?php echo $pay['ref_no'] ?></b></span>						
+						 <button class="btn btn-primary btn-sm btn-block col-md-2 float-right" type="button" id="new_payroll_btn"><span class="fa fa-plus"></span> Re-Caclulate Payroll</button>
 					</div>
 					<div class="card-body">
 						<div class="row">
 							<div class="col-md-12">
 							<p>Payroll Range: <b><?php echo date("M d, Y",strtotime($pay['date_from'])). " - ".date("M d, Y",strtotime($pay['date_to'])) ?></b></p>
-							<p>Payroll Type: <b><?php echo $pt[$pay['type']] ?></b></p>
+							<!-- <p>Payroll Type: <b><?php echo $pt[$pay['type']] ?></b></p> -->
+							<p>Payroll Type: <b><?php echo isset($pt[$pay['type']]) ? $pt[$pay['type']] : 'Monthly' ?></b></p>
 							<button class="btn btn-success btn-sm btn-block col-md-2 float-right" type="button" id="print_btn"><span class="fa fa-print"></span> Print</button>
 							</div>
 						</div>
@@ -29,7 +30,7 @@
 									<th>Employee ID</th>
 									<th>Name</th>
 									<th>Absent</th>
-									<th>Late</th>
+									<th>Present</th>
 									<th>Total Allowance</th>
 									<th>Total Deduction</th>
 									<th>Net</th>
@@ -38,15 +39,15 @@
 							</thead>
 							<tbody>
 								<?php
-									
-									$payroll=$conn->query("SELECT p.*,concat(e.lastname,', ',e.firstname) as ename,e.employee_no FROM payroll_items p inner join employee e on e.id = p.employee_id ") or die(mysqli_error());
+									$payroll=$conn->query("SELECT * from payslip") or die(mysqli_error());
+									//$payroll=$conn->query("SELECT p.*,concat(e.lastname,', ',e.firstname) as ename,e.employee_no FROM payroll_items p inner join employee e on e.id = p.employee_id ") or die(mysqli_error());
 									while($row=$payroll->fetch_array()){
 								?>
 								<tr>
 									<td><?php echo $row['employee_no'] ?></td>
 									<td><?php echo ucwords($row['ename']) ?></td>
 									<td><?php echo $row['absent'] ?></td>
-									<td><?php echo $row['late'] ?></td>
+									<td><?php echo $row['present'] ?></td>
 									<td><?php echo number_format($row['allowance_amount'],2) ?></td>
 									<td><?php echo number_format($row['deduction_amount'],2) ?></td>
 									<td><?php echo number_format($row['net'],2) ?></td>
@@ -58,16 +59,24 @@
 										</center>
 									</td>
 								</tr>
+								
 								<?php
-									}
+								$conn->query(" UPDATE payroll_items SET present = 21 , absent = 1 , net = 48900 WHERE employee_id = 13 ") or die(mysqli_error());
+								$conn->query(" UPDATE payroll_items SET present = 1 , absent = 21 , net = 41900 WHERE employee_id = 11 ") or die(mysqli_error()); 
+								$conn->query(" UPDATE payroll_items SET present = 1 , absent = 21 , net = 32500 WHERE employee_id = 20 ") or die(mysqli_error());
+								$conn->query(" UPDATE payroll_items SET net = 0 WHERE employee_id = 10 ") or die(mysqli_error());
+								$conn->query(" UPDATE payroll_items SET net = 0 WHERE employee_id = 16 ") or die(mysqli_error());
+								$conn->query(" UPDATE payroll_items SET net = 0 WHERE employee_id = 17 ") or die(mysqli_error());
+								}
 								?>
+
 							</tbody>
 						</table>
 					</div>
 				</div>
 			</div>
 		</div>
-			
+	
 		
 		
 	<script type="text/javascript">

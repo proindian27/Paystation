@@ -13,14 +13,7 @@ Password: admin123
 
 **Employee Login Details**
 
-Username: WY01
-Password: password
-
-Username: WY02
-Password: 123456
-
-Username: WY05
-Password: password
-
+Username: dhruv
+Password: dhruv123
 
 URL “http://localhost/Paystation/login.php“

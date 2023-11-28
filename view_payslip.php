@@ -22,7 +22,6 @@
 			</div>
 			<div class="col-md-6">
 				<p><b>Days of Absent : <?php echo $absent ?></b></p>
-				<p><b>Tardy/Undertime (mins) : <?php echo $late ?></b></p>
 				<p><b>Total Allowance Amount : <?php echo number_format($allowance_amount,2) ?></b></p>
 				<p><b>Total Deduction Amount : <?php echo number_format($deduction_amount,2) ?></b></p>
 				<p><b>Net Pay : <?php echo number_format($net,2) ?></b></p>

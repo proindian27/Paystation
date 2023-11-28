@@ -19,7 +19,7 @@
 					<label for="" class="control-label">Payroll Type :</label>
 					<select name="type" class="custom-select browser-default" id="">
 						<option value="1">Monthly</option>
-						<option value="2">Semi-Monthly</option>
+						<!-- <option value="2">Semi-Monthly</option> -->
 					</select>
 				</div>
 		</form>

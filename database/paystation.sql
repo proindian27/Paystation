@@ -119,7 +119,6 @@ CREATE TABLE `employee` (
   `id` int(20) NOT NULL,
   `employee_no` varchar(100) NOT NULL,
   `firstname` varchar(50) NOT NULL,
-  `middlename` varchar(20) NOT NULL,
   `lastname` varchar(50) NOT NULL,
   `department_id` int(30) NOT NULL,
   `position_id` int(30) NOT NULL,
@@ -143,7 +142,7 @@ CREATE TABLE `employee_allowances` (
   `id` int(30) NOT NULL,
   `employee_id` int(30) NOT NULL,
   `allowance_id` int(30) NOT NULL,
-  `type` tinyint(1) NOT NULL COMMENT '1 = Monthly, 2= Semi-Montly, 3 = once',
+  `type` tinyint(1) NOT NULL COMMENT '1 = Monthly,
   `amount` float NOT NULL,
   `effective_date` date NOT NULL,
   `date_created` datetime NOT NULL DEFAULT current_timestamp()
@@ -193,7 +192,7 @@ CREATE TABLE `payroll` (
   `ref_no` text NOT NULL,
   `date_from` date NOT NULL,
   `date_to` date NOT NULL,
-  `type` tinyint(1) NOT NULL COMMENT '1 = monthly ,2 semi-monthly',
+  `type` tinyint(1) NOT NULL COMMENT '1 = monthly ',
   `status` tinyint(1) NOT NULL DEFAULT 0 COMMENT '0 =New,1 = computed',
   `date_created` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -263,10 +262,7 @@ INSERT INTO `position` (`id`, `department_id`, `name`) VALUES
 
 CREATE TABLE `users` (
   `id` int(30) NOT NULL,
-  `doctor_id` int(30) NOT NULL,
   `name` varchar(200) NOT NULL,
-  `address` text NOT NULL,
-  `contact` text NOT NULL,
   `username` varchar(100) NOT NULL,
   `password` varchar(200) NOT NULL,
   `type` tinyint(1) NOT NULL DEFAULT 2 COMMENT '1=admin , 2 = staff'
@@ -276,8 +272,8 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `doctor_id`, `name`, `address`, `contact`, `username`, `password`, `type`) VALUES
-(1, 0, 'Administrator', '', '', 'admin', 'admin123', 1);
+INSERT INTO `users` (`id`, `name`,`username`, `password`, `type`) VALUES
+(1,'Administrator','admin', 'admin123', 1);
 
 --
 -- Indexes for dumped tables

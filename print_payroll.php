@@ -16,7 +16,7 @@ tr,td,th{
 <?php include('db_connect.php') ?>
 <?php
 		$pay = $conn->query("SELECT * FROM payroll where id = ".$_GET['id'])->fetch_array();
-		$pt = array(1=>"Monhtly",2=>"Semi-Monthly");
+		$pt = array(1=>"Monthly");
 ?>
 <div>
 <h2 class="text-center">Payroll - <?php echo $pay['ref_no'] ?></h2>
